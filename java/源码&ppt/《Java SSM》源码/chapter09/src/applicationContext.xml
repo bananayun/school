@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/aop 
+    http://www.springframework.org/schema/aop/spring-aop.xsd">
+	<!-- 引入外部 properties 文件 -->
+	<context:property-placeholder
+		location="classpath:jdbc.properties" />
+	<!-- 注册数据源 -->
+	<bean name="dataSource"
+		class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="${jdbc.driverClass}" />
+		<property name="jdbcUrl" value="${jdbc.jdbcUrl}" />
+		<property name="user" value="${jdbc.user}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+	<!--注册JdbcTemplate类 -->
+	<bean name="jdbcTemplate"
+		class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean name="student" class="com.qfedu.bean.Student" />
+	<bean name="userDao01" class="com.qfedu.dao.UserDaoImpl01">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+	<!-- <bean name="userDao02" class="com.qfedu.dao.UserDaoImpl02"> <property 
+		name="jdbcTemplate" ref="jdbcTemplate" /> </bean> -->
+	<bean name="userDao02" class="com.qfedu.dao.UserDaoImpl02">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+</beans>

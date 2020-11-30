@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>banana</title>
+		<script  type="text/javascript">
+			var video;
+			function init() 
+			{
+			    video = document.getElementById("vdo");
+			    //监听视频播放结束事件
+			    video.addEventListener("ended", function() 
+			    {
+			      alert("亲，结束了");
+			    }, true);
+			}
+			function play(){
+					var player = document.getElementById("vdo");
+					if (player.paused){
+						player.play();
+						pa.innerHTML = '暂停';
+					}
+					else {
+						player.pause();
+						pa.innerHTML = '播放';
+					}
+			}
+		</script>
+	</head>
+	<body onload="init()">
+		<div align="center" style="position:absolute; top: 20%;">
+			<video id="vdo" src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/712af11e-272d-42c6-9012-d2c388b8001c.mp4" controls="true" width="75%" poster="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/9d8587cb-6b46-4eb6-a2db-77974e331c13.jpg">
+				你的浏览器不支持该视频
+			</video>
+			<br />
+			<button id="pa" onclick="play()">播放</button>
+		</div>
+		
+	</body>
+</html>

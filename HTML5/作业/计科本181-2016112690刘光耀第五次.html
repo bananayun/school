@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>计科本181-2016112690刘光耀第五次实作</title>
+		<script type="text/javascript" async="true">
+			function fun(){
+				var num = document.getElementById("dd").value;
+				var dic = document.getElementById("d");
+				dic.setAttribute("start",num);
+			}
+		</script>
+	</head>
+	<body bgcolor="beige">
+		<ul>
+			<li><font size="+2" color="cornflowerblue">开始</font></li>
+			<ul type="circle">
+				<li>php</li>
+				<li>java</li>
+				<li>c++</li>
+			</ul>
+			<li>中间</li>
+			<input type="text" id="dd" style="width: 50px;"/>
+			<input type="button" value="确定" onclick="fun()"/>
+			<ol type="A" start="5" id="d">
+				<li>床前明月光，</li>
+				<li>疑是地上霜。</li>
+				<li>举头望明月，</li>
+				<li>低头思故乡。</li>
+			</ol>
+			<li>结尾</li>
+		</ul>
+	</body>
+</html>

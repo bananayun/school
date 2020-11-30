@@ -1,0 +1,104 @@
+
+<script language=javascript>
+
+	function ProcessKeyDown(StrType) {
+    //On Error resume next
+		if (event.keycode == 9) {
+			
+		}else{ 
+			if (window.event.keycode == 13) {//Enter 改成Tab
+				window.event.keycode = 9;
+			}else{ 
+				if (StrType.indexOf("num")>=0) {
+					if(((window.event.keyCode >= 48) && (window.event.keyCode <= 57))) {
+							
+					}else{
+						alert("Please enter a number!!");
+						window.event.returnValue = false;
+					}
+				}
+			}
+		}
+	}
+</script>  
+
+<NOSCRIPT>
+	<P>本網頁無法執行描述語言,將Enter轉成Tab</P>
+</NOSCRIPT>
+
+<script language="JavaScript" >
+	document.write('<font id="clock"></font>');
+		var now;
+		var hours,minutes,seconds,Times;
+		now = new Date();
+		hours = now.getHours();
+		minutes = now.getMinutes();
+		seconds = now.getSeconds();
+		Times = now.getTime();
+	function showtimeLimit(){
+		var now1,hours1,minutes1,seconds1,Times1,timeValue,TemSec;
+		now1 = new Date();
+		hours1 = now1.getHours();
+		minutes1 = now1.getMinutes();
+		seconds1 = now1.getSeconds();
+		Times1 = now1.getTime();
+		TemSec = Math.round(3*60 - (Times1 - Times)/1000);
+		if (3 > 0) {
+			if (TemSec > 0) {
+				timeValue = "TimeLimit:"+ TemSec + "秒";
+				timeValue += "  3";
+				setTimeout("showtimeLimit()",1000);
+			}else{
+				timeValue = "<font size=+2 Color=Red>超出時限請重新輸入</font>";
+				window.location.replace("3");
+			}
+			clock.innerHTML = timeValue;
+		}else clock.innerHTML = "";
+	}
+	window.onload=showtimeLimit;
+</script>
+
+<form name=PostFormNew method="post" enctype="multipart/form-data" action="./rec.jsp" >
+	class:
+	<input type="text" title="class" size=10 maxlength=10 name="class2" value="181"  onKeyDown="ProcessKeyDown('')">
+	student_id:
+	<input type="text" title="student_id" size=10 maxlength=15 name="student_id" value="2016112690"  onKeyDown="ProcessKeyDown('num')">
+	student_name:
+	<input type="text" title="student_name" size=10 maxlength=30 name="student_name" value="banana"  onKeyDown="ProcessKeyDown('')">
+<br/>
+	English:
+	<input type="text" title="English" size=10 maxlength=4 name="English" value="99"  onKeyDown="ProcessKeyDown('num')">
+<br/>
+	Chain:
+	<input type="text" title="Chain" size=10 maxlength=4 name="Chain" value="98"  onKeyDown="ProcessKeyDown('num')">
+<br/>
+	Math:
+	<input type="text" title="math" size=10 maxlength=4 name="math1" value="97"  onKeyDown="ProcessKeyDown('num')">
+<br/>
+
+    <hr size=1>
+    <input title="submit" type="button" name="Submit" value="Submit" onClick="javascript:checkFormNew();">
+
+</form>
+
+<script language="javaScript">
+	function checkFormNew(){
+		try {
+		var mRet ; 
+		mRet = true ; document.PostFormNew.submit();
+		//检查
+		if(document.English.value() < 0 || document.English.value() > 0) mRet = false;
+		if(document.math1.value() < 0 || document.math1.value() > 0) mRet = false;
+		if(document.Chain.value() < 0 || document.Chain.value() > 0) mRet = false;
+		if(mRet) 
+		else alert("Please enter a number from 0 to 100");
+		}
+		catch(e) {
+			alert("例外處理 問題發生在(" + Chechi.toString() + ") 問題說明:" + e.toString());
+			return false;
+		}
+	}
+</script>
+  <NOSCRIPT>
+  <P>本網頁無法執行描述語言</P>
+  </NOSCRIPT>

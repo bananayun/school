@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/aop 
+    http://www.springframework.org/schema/aop/spring-aop.xsd">
+	<bean name="userService" class="com.qfedu.demo02.UserServiceImpl" />
+	<bean name="aspect05" class="com.qfedu.demo02.Aspect05" />
+	<bean name="aspect06" class="com.qfedu.demo02.Aspect06" />
+	<aop:config>
+		<aop:pointcut id="pointcut"
+			expression="execution(* com.qfedu.demo02.UserServiceImpl.*(..))" />
+		<!--配置切面 -->
+		<aop:aspect ref="aspect05" order="1">
+			<aop:before method="before" pointcut-ref="pointcut" />
+			<aop:after method="after" pointcut-ref="pointcut" />
+		</aop:aspect>
+		<!--配置切面 -->
+		<aop:aspect ref="aspect06" order="0">
+			<aop:before method="before" pointcut-ref="pointcut" />
+			<aop:after method="after" pointcut-ref="pointcut" />
+		</aop:aspect>
+	</aop:config>
+</beans>
+   

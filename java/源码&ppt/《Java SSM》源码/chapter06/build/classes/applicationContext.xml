@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 将指定的类配置给Spring -->
+	<bean id="student" class="com.qfedu.bean.Student">
+		<property name="msg">
+			<value>Java</value>
+		</property>
+	</bean>
+	<bean id="teacher" class="com.qfedu.bean.Teacher" lazy-init="true">
+		<property name="msg">
+			<value>Spring</value>
+		</property>
+	</bean>
+
+
+</beans>

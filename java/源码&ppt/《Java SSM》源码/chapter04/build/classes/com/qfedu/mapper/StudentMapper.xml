@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="student">
+	<select id="findStudentBySnameAndCourse" parameterType="student"
+		resultType="student">
+		select * from student where sname = #{sname}
+		<!--根据条件动态拼装SQL语句 -->
+		<if test=" null!=course and ''!=course">
+			and course =#{course}
+		</if>
+	</select>
+	<!-- <select id="findStudentByChoose" parameterType="student"
+		resultType="student">
+		select * from student where 1=1
+		<choose>
+			如果sid不为null或空字符串
+			<when test="null!=sid and''!=sid">
+				and sid = #{sid}
+			</when>
+			如果sname不为null或空字符串
+			<when test="null!=sname and ''!=sname">
+				and sname like '%${sname}%'
+			</when>
+			如果以上两个条件都不满足，则执行下列内容
+			<otherwise>
+				and course = 'Java'
+			</otherwise>
+		</choose>
+	</select> -->
+	<select id="findStudentByChoose"  parameterType="student" 
+ 	resultType="student">
+		select * from student 
+		<trim prefix="where" prefixOverrides="and">
+			<if test="null!=sid and''!=sid">
+				and sid = #{sid}
+			</if>
+			<if test="null!=sname and ''!=sname">
+			    and sname like '%${sname}%'
+			</if>
+			<if test="null==course">
+			    and course = 'Java'
+			</if>
+		</trim>
+	</select>
+
+	<update id="updateStudent" parameterType="student">
+		update student
+		<set>
+			<if test="null!=sname and ''!=sname">
+				sname = #{sname},
+			</if>
+			<if test="null!=age and ''!=age">
+				age  = #{age}, 
+			</if>
+		</set>
+		where sid = #{sid}
+	</update>
+	
+	<select id="findStudentByForeach"    resultType="student">
+		select  * from student where sid in
+		<foreach item="sid"  index="index" collection="list" open="(" separator="," close=")" >
+			#{sid}
+		</foreach>
+	</select>
+	
+	<select id="findStudentByBind"  parameterType="student"  resultType="student">
+		select * from student  where 
+		<bind name="sname_pattern" value="'%'+sname+'%'"/>
+		<if test="null!=sname_pattern and ''!=sname_pattern">
+				sname like  #{sname_pattern}
+		</if>
+	</select>
+	
+</mapper>

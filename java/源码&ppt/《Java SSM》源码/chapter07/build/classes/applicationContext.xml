@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- 通过构造器注入成员变量的值 -->
+	<bean id="student" class="com.qfedu.bean.Student">
+		<constructor-arg name="sid" value="1"></constructor-arg>
+		<constructor-arg name="name" value="ZhangSan"></constructor-arg>
+		<constructor-arg name="age" value="20"></constructor-arg>
+		<constructor-arg name="course" value="Java"></constructor-arg>
+	</bean>
+	<bean id="teacher" class="com.qfedu.bean.Teacher">
+		<property name="tid" value="1"></property>
+		<property name="name" value="LiSi"></property>
+	</bean>
+	<bean id="mix" class="com.qfedu.bean.Mix">
+		<!-- 注入List -->
+		<property name="myList">
+			<list>
+				<value>list01</value>
+				<value>list02</value>
+			</list>
+		</property>
+		<!-- 注入Map -->
+		<property name="myMap">
+			<map>
+				<entry key="key01" value="map01"></entry>
+				<entry key="key02" value="map02"></entry>
+			</map>
+		</property>
+		<!-- 注入array -->
+		<property name="myArray">
+			<array>
+				<value>array01</value>
+				<value>array02</value>
+			</array>
+		</property>
+	</bean>
+	<bean id="school" class="com.qfedu.bean.School" p:sid="1"
+		p:stu-ref="student"></bean>
+	<bean id="employee" class="com.qfedu.bean.Employee">
+		<property name="eid" value="1"></property>
+		<property name="name" value="WangWu"></property>
+		<property name="department" value="研发部"></property>
+	</bean>
+	<bean id="person" class="com.qfedu.bean.Person">
+		<property name="pid" value="#{employee.eid}"></property>
+		<property name="name" value="#{employee.name}"></property>
+	</bean>
+	<bean id="person01" class="com.qfedu.bean.Person" />
+	<bean id="person02" class="com.qfedu.bean.Person"
+		scope="prototype" />
+	<bean id="bean01" class="com.qfedu.bean.Bean01" init-method="init">
+		<property name="bid" value="1"></property>
+		<property name="name" value="xiaoqian"></property>
+	</bean>
+	<bean id="bean02" class="com.qfedu.bean.Bean02">
+		<property name="bid" value="1"></property>
+		<property name="name" value="xiaoqian"></property>
+	</bean>
+	<bean id="bean03" class="com.qfedu.bean.Bean03"
+		destroy-method="close">
+		<property name="bid" value="1"></property>
+		<property name="name" value="xiaoqian"></property>
+	</bean>
+	<bean id="bean04" class="com.qfedu.bean.Bean04">
+		<property name="bid" value="1"></property>
+		<property name="name" value="xiaoqian"></property>
+	</bean>
+	<context:component-scan base-package="com.qfedu.bean"/>
+</beans>
