@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>圆与矩形</title>
+		<script>
+			function draw(id){
+				var me = document.getElementById(id);
+				if(me == null) return false;
+				var context = me.getContext('2d');
+				context.beginPath();
+				context.fillStyle = "#dbdbff";
+				context.fillRect(0,0,1200,500);
+				context.fillStyle = "green";
+				context.strokeStyle = "cornflowerblue";
+				context.lineWidth = 5;
+				context.fillRect(350,150,150,200);
+				context.strokeRect(350,150,150,200);
+
+				
+				context.beginPath();
+				context.arc(800,250,100,0,Math.PI * 2,true);
+				context.closePath();
+				context.fillStyle = "darkorange";
+				context.fill();
+
+			}
+		</script>
+	</head>
+	<body onload="draw('banana');">
+		<h1 align="center">圆yu矩形</h1>
+		<div align="center">
+			<canvas id="banana" width="1200" height="600" />
+		</div>
+		
+	</body>
+</html>
