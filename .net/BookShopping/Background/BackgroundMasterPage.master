@@ -1,0 +1,44 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="BackgroundMasterPage.master.cs" Inherits="Background_BackgroundMasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .style1
+        {
+            width: 176px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <div style=" background-image: url('http://localhost:4731/BookShopping/image/wangLoginImage.jpg'); height: 150px; width: 90%;">
+        </div>
+        <table style=" border: 2px solid #45A8DF; margin: 0 0; width:90%; height:480px; border-top:none;">
+            <tr>
+                <td class="style1">                                                                                  
+                        <asp:Menu ID="Menu1" runat="server" Height="79px" Width="20px">
+                            <Items>
+                            <asp:MenuItem Text="修改图书信息" Value="Edit_Book" ImageUrl="~/image/boss.ico" 
+                                    NavigateUrl="~/Background/Edit_book.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="修改密码" Value="User_manage" ImageUrl="~/image/boss.ico" 
+                                    NavigateUrl="~/Background/Alter_pwd.aspx"></asp:MenuItem>
+                            </Items>
+                        </asp:Menu>
+                </td>
+                <td>
+                    <asp:ContentPlaceHolder id="ContentPlaceHolder2" runat="server">
+                    </asp:ContentPlaceHolder>
+                </td>          
+            </tr>
+        </table>
+       
+    </div>
+    </form>
+</body>
+</html>
