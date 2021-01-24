@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 /// <summary>
 ///SQLClass 的摘要说明
@@ -16,7 +17,7 @@ public class SQLClass
     {
         strcon = "data Source=App_Data;server=localhost;database=BookShop;" +
                        "integrated security=SSPI";
-        SqlCon = new SqlConnection(strcon);
+        SqlCon = new SqlConnection(ConfigurationManager.AppSettings["GetCon"]);;
         //
         //TODO: 在此处添加构造函数逻辑
         //
