@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+
+<!--     <clssName>designPattern.experiment7_1.code.QuickSortAdapter</clssName> -->
+    <className>com.banana.demo3.FileOut</className>
+    <className>com.banana.demo3.Linux</className>
+    <className>com.banana.demo3.C_yuyan</className>
+<beans>
+	<bean id="OutPut" class="com.banana.demo3.OutPut" ></bean>
+</beans>
+
+</config>
