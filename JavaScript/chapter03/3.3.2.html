@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>banana</title>
+</head>
+
+<body>
+    <script>
+        var arr = ['hello', 'java', 22.15, true];
+        console.log(arr[0]);
+        console.log(arr[3]);
+        console.log(arr);
+        document.write(arr[0]);
+        document.write(arr[3]);
+        document.write(arr);
+    </script>
+
+    <div class="nav" id="navlist">
+
+    </div>
+    <script>
+        var navlist = ['首页', '免费资源', 'ke'];
+        var str = '<ul>';
+        for (var i in navlist) {
+            str += '<li><a>' + navlist[i] + '</a></li>';
+        }
+        str += '</ul>';
+        document.getElementById('navlist').innerHTML = str;
+    </script>
+</body>
+
+</html>

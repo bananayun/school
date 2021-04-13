@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 布尔型 -->
+    <script>
+        var con = prompt(); //保存用户的输出内容
+        if (Boolean(con)) {
+            document.write('已输入内容');
+        } else {
+            document.write('未输入内容');
+        }
+        console.log(Boolean(con)); //用户单击取消按钮，结果为false
+        console.log(Boolean(con)); //用户未输入，单击确定结果为false
+        console.log(Boolean(con)); //输入内容，单击确定，结果为true
+    </script>
+    <!-- 转数值型 -->
+    <script>
+        //获取用户的输入，自动求和
+        var num1 = prompt('请输入求和的第一个数据：');
+        var num2 = prompt('请输入求和的第二个数据：');
+        //未处理，直接进行相加运算
+        console.log(num1 + num2);
+        console.log(parseInt(num1) + parseInt(num2));
+        console.log(parseInt('123abc'));
+        console.log(parseInt('F', 16));
+        var num1 = parseInt(num1),
+            num2 = parseInt(num2); //转数值型
+        if (isNaN(num1) || isNaN(num2)) {
+            console.log('非法数字');
+        } else {
+            console.log(num1 + num2);
+        }
+    </script>
+    <!-- 转字符型 -->
+    <script>
+        var num1 = num2 = num3 = 4,
+            num4 = 26;
+        console.log(String(12));
+        console.log(num1 + num2 + num3.toString());
+        console.log(num4.toString(2));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

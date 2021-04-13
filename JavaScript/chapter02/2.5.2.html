@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 循环结构：while循环语句、do…while循环语句、for循环语句 
+        计算100以内奇数和 
+        跳转语句：break和continue语句 
+        标签语句：带标签的break语句 -->
+    <script>
+        var i = 0;
+        var sum = 0;
+        while (i < 100) {
+            i++;
+            if (i % 2 == 0) {
+                continue;
+            }
+            sum += i;
+        }
+        console.log(sum);
+
+        for (i = 0; i < 10; i++) {
+            if (i == 3) {
+                break;
+            }
+        }
+        console.log(i);
+        i = 0;
+        l:
+            do {
+                i++
+                if (i % 2 == 0) {
+                    break l;
+                }
+            } while (i < 10);
+        console.log(i);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

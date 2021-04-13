@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>banana</title>
+</head>
+
+<body>
+    <!-- 插入排序 -->
+    <script>
+        var arr = [10, 5, 7, 67, 32];
+        document.write("原数组：" + arr + "</br>");
+        for (var i = 0; i < arr.length; i++) {
+            for (var j = i + 1; j < arr.length; j++) {
+                if (arr[i] > arr[j])
+                    [arr[j], arr[i]] = [arr[i], arr[j]];
+                // document.write("("+arr[+")")
+            }
+        }
+        document.write("排序后：" + arr);
+    </script>
+</body>
+
+</html>
