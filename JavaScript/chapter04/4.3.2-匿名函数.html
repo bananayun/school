@@ -1,0 +1,32 @@
+<script>
+    //1.标准语法
+    (p1, p2) => {
+        p1 + p1;
+    }
+
+    //2.返回值
+    (p1, p2) => {
+        return p1 + p2;
+    }
+
+    //3.含一个参数
+    (p1) => {
+        p1 + 2;
+    }
+
+    //4.无参
+    () => {
+        statements;
+    }
+    //或
+    _ => {
+        alert("fff");
+    }
+
+
+    //演示使用
+    var fn1 = x => x + 2;
+    document.write(fn1(3));
+    var fn2 = (x, y) => x + y;
+    document.write(fn2(5, 6));
+</script>

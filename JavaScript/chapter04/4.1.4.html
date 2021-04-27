@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>banana</title>
+</head>
+
+<body>
+    <h1>大小写转换</h1>
+    原数据：<input id="old" type="text"> 操 作:
+    <input type="button" value="转大写" onclick="deal('upper')">
+    <input type="button" value="转小写" onclick="deal('lower')"> 新数据：
+    <input id="new" type="button">
+    <script>
+        function deal(opt) {
+            var str = document.getElementById('old').value;
+            switch (opt) {
+                case 'upper':
+                    str = str.toUpperCase();
+                    break;
+                case 'lower':
+                    str = str.toLowerCase();
+                    break;
+            }
+            document.getElementById('new').value = str;
+        }
+    </script>
+</body>
+
+</html>

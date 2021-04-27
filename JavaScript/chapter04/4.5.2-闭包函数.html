@@ -1,0 +1,16 @@
+<script>
+    function fn() {
+        var times = 0;
+        var c = function() {
+            return ++times;
+        }
+        return c;
+    }
+
+    var count = fn();
+    document.write(count() + "<br>");
+    document.write(count() + "<br>");
+    document.write(count() + "<br>");
+    document.write(count() + "<br>");
+    document.write(count() + "<br>");
+</script>

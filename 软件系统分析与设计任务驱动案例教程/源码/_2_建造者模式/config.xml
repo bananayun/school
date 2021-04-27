@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+
+    <!--     <clssName>designPattern.experiment6_1.code.FullPatternBuilder</clssName> -->
+    <!--     <clssName>designPattern.experiment6_1.code.SpfPatternBuilder</clssName> -->
+    <className>_08_设计模式._2_建造者模式.MemoryPatternBuilder</className>
+
+</config>

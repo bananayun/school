@@ -1,0 +1,13 @@
+<script>
+    function cal(n1, n2, fn) {
+        return fn(n1, n2);
+    }
+    document.write(cal(100, 200, function(a, b) {
+        return a + b;
+    }));
+
+    var arr = ['a', 'b', 'c'];
+    arr.map(function(value, index) {
+        document.write(value, index);
+    });
+</script>

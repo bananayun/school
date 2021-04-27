@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <input type="button" value="点赞">
+    <input type="button" value="点赞">
+    <input type="button" value="点赞">
+    <input type="button" value="点赞">
+    <script>
+        var input = document.getElementsByTagName("input");
+
+        function zan() {
+            var n = 0;
+
+            var s = function() {
+                ++n;
+                return this.value = "点赞" + n;
+            }
+            return s;
+        }
+
+        for (i in input) {
+            var z = zan();
+            input[i].onclick = z;
+        }
+        var xhr = new XMLHttpRequest();
+    </script>
+</body>
+
+</html>
